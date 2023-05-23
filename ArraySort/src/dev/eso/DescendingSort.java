@@ -6,7 +6,7 @@ import java.util.Random;
 public class DescendingSort {
 
     public static void main(String[] args) {
-        int[] array = getRandomArray(3);
+        int[] array = getRandomArray(5);
         System.out.println(Arrays.toString(array));
         int[] sortedArray = descendingSort(array);
         System.out.println(Arrays.toString(sortedArray));
@@ -27,17 +27,16 @@ public class DescendingSort {
         int[] copyArray = Arrays.copyOf(array,array.length);
         boolean isSorted = false;
         while(!isSorted) {
-            boolean flag = false;
+            isSorted = true;
             for (int i = 0; i < copyArray.length -1;i++) {
                 if (copyArray[i] < copyArray[i+1]) {
                     int temp = copyArray[i+1];
                     copyArray[i+1] = copyArray[i];
                     copyArray[i] = temp;
-                    flag = true;
+                    isSorted = false;
 
                 }
             }
-            if (flag == false) break;
         }
         return copyArray;
 
